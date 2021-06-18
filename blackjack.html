@@ -39,13 +39,18 @@
             return array;
         }
         function deal(){
-            playerHand.push(shuffledeck.shift[1])
-            console.log(playerHand)
+            playerHand.push(shuffledeck.pop())
+            computerHand.push(shuffledeck.pop())
+            playerHand.push(shuffledeck.pop())
+            computerHand.push(shuffledeck.pop())
+            console.log(`The player's cards are a ${playerHand[0].face} of ${playerHand[0].suit} and a ${playerHand[1].face} of ${playerHand[1].suit}!`)
+            console.log(`The computer's cards are a ${computerHand[0].face} of ${computerHand[0].suit} and a ${computerHand[1].face} of ${computerHand[1].suit}!`)
         }
         getDeck();
         let shuffledeck = shuffle(deck)
         console.log(shuffledeck)
         deal();
+
 
 
     </script>
