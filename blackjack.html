@@ -65,12 +65,14 @@
         compHand.push(shuffledeck.pop());
         playerHand.push(shuffledeck.pop());
         compHand.push(shuffledeck.pop());
-        console.log(
-          `The player's cards are a ${playerHand[0].face} of ${playerHand[0].suit} and a ${playerHand[1].face} of ${playerHand[1].suit}!`
-        );
-        console.log(
-          `The computer's cards are a ${compHand[0].face} of ${compHand[0].suit} and a ${compHand[1].face} of ${compHand[1].suit}!`
-        );
+        // console.log(
+        //   `The player's cards are: ${playerHand[0].face} of ${playerHand[0].suit} & ${playerHand[1].face} of ${playerHand[1].suit}!`
+        // );
+        // console.log(
+        //   `The computer's cards are: ${compHand[0].face} of ${compHand[0].suit} & ${compHand[1].face} of ${compHand[1].suit}!`
+        // );
+        showPlayer();
+        showComp();
       }
       function gameEval() {
         playerPoints = 0;
@@ -89,9 +91,32 @@
             console.log(`Player wins!`)
         } else if (compPoints === 21) {
             console.log(`Computer wins!`)
+        } else if (playerPoints > 21) {
+            console.log(`Busted! Better luck next time!`)
         } else {
             console.log(`The player currently has ${playerPoints} points. Hit or Stay? (Computer has ${compPoints} points)`)
         }
+      }
+      // for each loop to console log the players hand regardless of card amount
+      let playerStr = "The player's hand: "
+      function showPlayer() {
+        playerStr = "The player's hand: "
+        playerHand.forEach(card => {
+            playerStr += `${card.face} of ${card.suit} `;
+        })
+        console.log(playerStr)
+      }
+      let compStr = "The computer's hand: "
+      function showComp() {
+        compHand.forEach(card => {
+            compStr += `${card.face} of ${card.suit} `;
+        })
+        console.log(compStr)
+      }
+      function playerHit() {
+        playerHand.push(shuffledeck.pop());
+        showPlayer();
+        gameEval();
       }
       getDeck();
       let shuffledeck = shuffle(deck);
