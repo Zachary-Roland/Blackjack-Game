@@ -81,8 +81,17 @@
         compHand.forEach((card) => {
           compPoints += card.value;
         });
-        console.log(`The player currently has ${playerPoints} points.`);
-        console.log(`The computer currently has ${compPoints} points.`);
+        // console.log(`The player currently has ${playerPoints} points.`);
+        // console.log(`The computer currently has ${compPoints} points.`);
+        if (playerPoints === 21 && compPoints === 21) {
+            console.log(`It's a tie! What are the odds??`)
+        } else if (playerPoints === 21) {
+            console.log(`Player wins!`)
+        } else if (compPoints === 21) {
+            console.log(`Computer wins!`)
+        } else {
+            console.log(`The player currently has ${playerPoints} points. Hit or Stay? (Computer has ${compPoints} points)`)
+        }
       }
       getDeck();
       let shuffledeck = shuffle(deck);
