@@ -1,0 +1,22 @@
+* {
+    /* font family here */
+}
+.flex {
+    display: flex;
+    flex-flow: row wrap;
+}
+.flex100 {
+    flex-basis: 100%;
+}
+.handContainer {
+
+}
+.handBox {
+    max-width: ;
+}
+.resultsContainer {
+
+}
+.footerDiv {
+    max-width: ;
+}
