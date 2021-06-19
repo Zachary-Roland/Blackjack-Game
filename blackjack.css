@@ -3,11 +3,24 @@
     margin: 0px;
     padding: 0px;
     border: 0px;
-    background-color: #FFCCBC;
+    background-color: #FFE0D6;
     text-align: center;
 }
 body {
     height: 100vh;
+}
+.textCenter {
+    text-align: center;
+}
+.verifyAge {
+    position: absolute;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+}
+.ageBox {
+    width: 80%;
+    color: #e64a19;
 }
 .flex {
     display: flex;
@@ -22,15 +35,21 @@ body {
 .alignCenter {
     align-items: center;
 }
+.justifyCenter {
+    justify-content: center;
+}
 header {
     min-height: 15%;
     border: 2px solid red;
 }
+#win, #loss, #tie {
+    font-weight: 400;
+}
 .gCountContainer {
-
+    font-weight: 600;
 }
 .titleContainer {
-
+    color: #e64a19;
 }
 .gPointsContainer {}
 main {
@@ -38,7 +57,6 @@ main {
 }
 .handContainer {
     min-height: 40%;
-    border: 2px dashed blue;
 }
 .handBox {
     max-width: 100px;

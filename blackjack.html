@@ -10,8 +10,18 @@
     <link rel="stylesheet" href="./blackjack.css">
   </head>
   <body class="flex">
+      <div class="verifyAge flex alignCenter justifyCenter">
+          <div class="flex ageBox justifyCenter">
+              <h2>Are you old enough?</h2>
+              <div></div>
+          </div>
+      </div>
       <header class="flex flex100 alignCenter">
-          <div class="gCountContainer flex33"></div>
+          <div class="gCountContainer flex33">
+              <div>Win <span id="win">0</span></div>
+              <div>Loss <span id="loss">0</span></div>
+              <div>Tie <span id="tie">0</span></div>
+          </div>
           <div class="titleContainer flex33">
               <h1>BLK</h1>
               <h1>JCK</h1>
