@@ -56,12 +56,6 @@ const suit = ["spades", "hearts", "diamonds", "clubs"];
         compHand.push(shuffledeck.pop());
         playerHand.push(shuffledeck.pop());
         compHand.push(shuffledeck.pop());
-        // console.log(
-        //   `The player's cards are: ${playerHand[0].face} of ${playerHand[0].suit} & ${playerHand[1].face} of ${playerHand[1].suit}!`
-        // );
-        // console.log(
-        //   `The computer's cards are: ${compHand[0].face} of ${compHand[0].suit} & ${compHand[1].face} of ${compHand[1].suit}!`
-        // );
         showPlayer();
         showComp();
       }
@@ -74,8 +68,6 @@ const suit = ["spades", "hearts", "diamonds", "clubs"];
         compHand.forEach((card) => {
           compPoints += card.value;
         });
-        // console.log(`The player currently has ${playerPoints} points.`);
-        // console.log(`The computer currently has ${compPoints} points.`);
         if (playerPoints === 21 && compPoints === 21) {
           gameResult = "tie"
           console.log(`It's a tie! What are the odds??`);
@@ -94,7 +86,6 @@ const suit = ["spades", "hearts", "diamonds", "clubs"];
           );
         }
       }
-      // for each loop to console log the players hand regardless of card amount
       let playerStr = "The player's hand: ";
       function showPlayer() {
         playerStr = "The player's hand: ";
@@ -114,6 +105,10 @@ const suit = ["spades", "hearts", "diamonds", "clubs"];
         playerHand.push(shuffledeck.pop());
         showPlayer();
         playerEval();
+      }
+      function playerStay() {
+        console.log(`You chose to stay! What will the computer do?`);
+        computerHit();
       }
       function computerHit() {
         compStr = "The computer's hand: "
@@ -138,10 +133,6 @@ const suit = ["spades", "hearts", "diamonds", "clubs"];
             gameResult = "win"
             console.log(`Computer has ${compPoints} points to your ${playerPoints}, you win!!`)
         }
-      }
-      function playerStay() {
-        console.log(`You chose to stay! What will the computer do?`);
-        computerHit();
       }
       getDeck();
       let shuffledeck = shuffle(deck);
