@@ -117,14 +117,14 @@ const suit = ["spades", "hearts", "diamonds", "clubs"];
       }
       function computerHit() {
         compStr = "The computer's hand: "
-        console.log(`Computer Hits!`);
-        compHand.push(shuffledeck.pop());
         showComp();
         compPoints = 0;
         compHand.forEach((card) => {
-          compPoints += card.value;
+            compPoints += card.value;
         });
         if (compPoints < 17) {
+            console.log(`Computer Hits!`);
+            compHand.push(shuffledeck.pop());
             computerHit();
         } else if (compPoints > 21) {
             gameResult = "win";
