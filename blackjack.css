@@ -1,5 +1,13 @@
 * {
-    /* font family here */
+    font-family: 'Quicksand', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background-color: #FFCCBC;
+    text-align: center;
+}
+body {
+    height: 100vh;
 }
 .flex {
     display: flex;
@@ -8,14 +16,41 @@
 .flex100 {
     flex-basis: 100%;
 }
-.handContainer {
+.flex33 {
+    flex-basis: calc(100% / 3);
+}
+.alignCenter {
+    align-items: center;
+}
+header {
+    min-height: 15%;
+    border: 2px solid red;
+}
+.gCountContainer {
 
+}
+.titleContainer {
+
+}
+.gPointsContainer {}
+main {
+    height: 68%;
+}
+.handContainer {
+    min-height: 40%;
+    border: 2px dashed blue;
 }
 .handBox {
-    max-width: ;
+    max-width: 100px;
+    background-color: white;
 }
 .resultsContainer {
-
+    min-height: 10%;
+    border: 2px solid black;
+}
+footer {
+    min-height: 15%;
+    border: 2px solid red;
 }
 .footerDiv {
     max-width: ;
