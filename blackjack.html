@@ -29,6 +29,7 @@
       let deck = new Array();
       let playerPoints = 0;
       let compPoints = 0;
+      let gameResult;
       function getDeck() {
         suit.forEach((i) => {
           face.forEach((j) => {
@@ -74,7 +75,7 @@
         showPlayer();
         showComp();
       }
-      function gameEval() {
+      function playerEval() {
         playerPoints = 0;
         compPoints = 0;
         playerHand.forEach((card) => {
@@ -86,43 +87,77 @@
         // console.log(`The player currently has ${playerPoints} points.`);
         // console.log(`The computer currently has ${compPoints} points.`);
         if (playerPoints === 21 && compPoints === 21) {
-            console.log(`It's a tie! What are the odds??`)
+          gameResult = "tie"
+          console.log(`It's a tie! What are the odds??`);
         } else if (playerPoints === 21) {
-            console.log(`Player wins!`)
+          gameResult = "win"
+          console.log(`Player wins!`);
         } else if (compPoints === 21) {
-            console.log(`Computer wins!`)
+          gameResult = "lose"
+          console.log(`Computer wins!`);
         } else if (playerPoints > 21) {
-            console.log(`Busted! Better luck next time!`)
+          gameResult = "lose"
+          console.log(`Busted! Better luck next time!`);
         } else {
-            console.log(`The player currently has ${playerPoints} points. Hit or Stay? (Computer has ${compPoints} points)`)
+          console.log(
+            `The player currently has ${playerPoints} points. Hit or Stay? (Computer has ${compPoints} points)`
+          );
         }
       }
       // for each loop to console log the players hand regardless of card amount
-      let playerStr = "The player's hand: "
+      let playerStr = "The player's hand: ";
       function showPlayer() {
-        playerStr = "The player's hand: "
-        playerHand.forEach(card => {
-            playerStr += `${card.face} of ${card.suit} `;
-        })
-        console.log(playerStr)
+        playerStr = "The player's hand: ";
+        playerHand.forEach((card) => {
+          playerStr += `${card.face} of ${card.suit}, `;
+        });
+        console.log(playerStr);
       }
-      let compStr = "The computer's hand: "
+      let compStr = "The computer's hand: ";
       function showComp() {
-        compHand.forEach(card => {
-            compStr += `${card.face} of ${card.suit} `;
-        })
-        console.log(compStr)
+        compHand.forEach((card) => {
+          compStr += `${card.face} of ${card.suit}, `;
+        });
+        console.log(compStr);
       }
       function playerHit() {
         playerHand.push(shuffledeck.pop());
         showPlayer();
-        gameEval();
+        playerEval();
+      }
+      function computerHit() {
+        compStr = "The computer's hand: "
+        console.log(`Computer Hits!`);
+        compHand.push(shuffledeck.pop());
+        showComp();
+        compPoints = 0;
+        compHand.forEach((card) => {
+          compPoints += card.value;
+        });
+        if (compPoints < 17) {
+            computerHit();
+        } else if (compPoints > 21) {
+            gameResult = "win";
+            console.log(`Computer Busted! You win!`)
+        } else if (compPoints > playerPoints) {
+            //  comp wins
+            gameResult = "lose";
+            console.log(`Computer has ${compPoints} points to your ${playerPoints}, you lose!`)
+        } else {
+            //  comp loses
+            gameResult = "win"
+            console.log(`Computer has ${compPoints} points to your ${playerPoints}, you win!!`)
+        }
+      }
+      function playerStay() {
+        console.log(`You chose to stay! What will the computer do?`);
+        computerHit();
       }
       getDeck();
       let shuffledeck = shuffle(deck);
       console.log(shuffledeck);
       deal();
-      gameEval();
+      playerEval();
     </script>
   </body>
 </html>
