@@ -1,3 +1,4 @@
+// import moment from 'moment';
 const suit = ["spades", "hearts", "diamonds", "clubs"];
 const face = ["ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"];
 const playerHand = new Array();
@@ -6,9 +7,38 @@ let deck = new Array();
 let playerPoints = 0;
 let compPoints = 0;
 let gameResult;
-const ageButton = document.getElementById(`oldButton`);
+let errMsg;
+const ageButton = document.getElementById("oldButton");
+const notOldButton = document.getElementById("notOldButton")
+const birthdayInput = document.getElementById("birthday")
+notOldButton.addEventListener("click", function redirect(){
+    window.location=`https://www.sesamestreet.org/`
+})
 ageButton.addEventListener("click", function verifyAge() {
-    const birthday = document.getElementById(`birthday`)
+    let birthday = birthdayInput.value
+    birthday = new Date(birthday);
+    var today = new Date();
+    var age = Math.floor((today-birthday) / (365.25 * 24 * 60 * 60 * 1000));
+    // if under 18, add div with text errMsg and redirect to sesame street after a couple seconds.
+    let ageQ = document.getElementById("ageQ")
+    let agePrompt = document.getElementById("agePrompt")
+    if (isNaN(age)) {
+        agePrompt.innerText = "Please enter a valid date!"
+    }
+    if (age < 18) {
+        ageQ.innerText = "You're not old enough!"
+        agePrompt.innerText = "Let's take you somewhere more age appropriate..."
+        setTimeout(function(){ 
+            window.location=`https://www.sesamestreet.org/`
+         }, 2000);
+        console.log(errMsg);
+    } else if (age > 18) {
+        let removeTarget = document.getElementById("verifyAgeDiv");
+        removeTarget.classList.add("removed");
+        removeTarget.addEventListener("transitionend", ()=> {
+            removeTarget.remove();
+        })
+    }
 })
 function getDeck() {
   suit.forEach((i) => {

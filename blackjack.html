@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="./blackjack.css" />
   </head>
   <body class="flex">
-    <div class="verifyAge flex alignCenter justifyCenter">
+    <!-- <div class="verifyAge flex alignCenter justifyCenter" id="verifyAgeDiv">
       <div class="flex ageBox justifyCenter alignCenter">
-        <h2 class="textColorPrimary flex100">Are you old enough?</h2>
-        <h5 class="flex100 textColorSecondary">Enter your birthday</h5>
+        <h2 class="textColorPrimary flex100 minHeight50" id="ageQ">Are you old enough?</h2>
+        <h5 class="flex100 textColorSecondary minHeight50 alignCenter" id="agePrompt">Enter your birthday</h5>
         <form class="flex flex100 alignCenter">
           <div class="birthdayDiv flex flex100 alignCenter justifyCenter">
             <input class="textColorSecondary" type="date" id="birthday" name="birthday"/>
@@ -31,7 +31,7 @@
             <button class="ageButton textColorWhite" type="button" id="oldButton">I'm old enough!</button>
           </div>
       </div>
-    </div>
+    </div> -->
     <header class="flex flex100 alignCenter">
       <div class="gCountContainer flex33">
         <div>Win <span id="win">0</span></div>
@@ -54,8 +54,13 @@
       </div>
     </main>
     <footer class="flex flex100">
-      <div class="footerDiv flex"></div>
+      <div class="footerDiv flex">
+          <div class="stayBox"></div>
+          <div class="dealBox"></div>
+          <div class="hitBox"></div>
+      </div>
     </footer>
+    <!-- <script src="moment.js"></script> -->
     <script src="./blackjack.js"></script>
   </body>
 </html>
