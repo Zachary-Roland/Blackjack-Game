@@ -5,41 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="./blackjack.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./blackjack.css" />
   </head>
   <body class="flex">
-      <div class="verifyAge flex alignCenter justifyCenter">
-          <div class="flex ageBox justifyCenter">
-              <h2>Are you old enough?</h2>
-              <div></div>
+    <div class="verifyAge flex alignCenter justifyCenter">
+      <div class="flex ageBox justifyCenter alignCenter">
+        <h2 class="textColorPrimary flex100">Are you old enough?</h2>
+        <h5 class="flex100 textColorSecondary">Enter your birthday</h5>
+        <form class="flex flex100 alignCenter">
+          <div class="birthdayDiv flex flex100 alignCenter justifyCenter">
+            <input class="textColorSecondary" type="date" id="birthday" name="birthday"/>
+          </div>
+        </form>
+      </div>
+      <div class="flex justifyCenter alignCenter ageButtonContainer">
+        <div class="notOldContainer flex flex50 alignCenter justifyCenter">
+            <button class="notOldButton textColorWhite" type="button" id="notOldButton">I'm just a baby...</button>
+        </div>
+        <div class="flex flex50 alignCenter justifyCenter">
+            <button class="ageButton textColorWhite" type="button" id="oldButton">I'm old enough!</button>
           </div>
       </div>
-      <header class="flex flex100 alignCenter">
-          <div class="gCountContainer flex33">
-              <div>Win <span id="win">0</span></div>
-              <div>Loss <span id="loss">0</span></div>
-              <div>Tie <span id="tie">0</span></div>
-          </div>
-          <div class="titleContainer flex33">
-              <h1>BLK</h1>
-              <h1>JCK</h1>
-          </div>
-          <div class="gPointsContainer flex33"></div>
-      </header>
-      <main class="flex flex100">
-          <div class="handContainer flex100">
-              <div class="handBox"></div>
-          </div>
-          <div class ="resultsContainer flex100"></div>
-          <div class="handContainer flex100">
-              <div class="handBox"></div>
-          </div>
-      </main>
-      <footer class="flex flex100">
-          <div class="footerDiv flex"></div>
-      </footer>
+    </div>
+    <header class="flex flex100 alignCenter">
+      <div class="gCountContainer flex33">
+        <div>Win <span id="win">0</span></div>
+        <div>Loss <span id="loss">0</span></div>
+        <div>Tie <span id="tie">0</span></div>
+      </div>
+      <div class="titleContainer textColorPrimary flex33">
+        <h1>BLK</h1>
+        <h1>JCK</h1>
+      </div>
+      <div class="gPointsContainer flex33"></div>
+    </header>
+    <main class="flex flex100">
+      <div class="handContainer flex100">
+        <div class="handBox"></div>
+      </div>
+      <div class="resultsContainer flex100"></div>
+      <div class="handContainer flex100">
+        <div class="handBox"></div>
+      </div>
+    </main>
+    <footer class="flex flex100">
+      <div class="footerDiv flex"></div>
+    </footer>
     <script src="./blackjack.js"></script>
   </body>
 </html>

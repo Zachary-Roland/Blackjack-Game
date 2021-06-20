@@ -12,6 +12,15 @@ body {
 .textCenter {
     text-align: center;
 }
+.textColorPrimary {
+    color: #e64a19;
+}
+.textColorSecondary {
+    color: #491808;
+}
+.textColorWhite {
+    color: #ffffff;
+}
 .verifyAge {
     position: absolute;
     z-index: 1;
@@ -20,7 +29,54 @@ body {
 }
 .ageBox {
     width: 80%;
-    color: #e64a19;
+    height: 20%
+}
+.birthdayDiv {
+    min-height: 250px;
+}
+#birthday {
+    text-align: right;
+    background-color: #ffffff;
+    border: 4px solid #ffffff;
+    padding: 5px;
+    border-radius: 20px;
+}
+#birthday:focus {
+    outline: none;
+}
+.ageButtonContainer {
+    width: 80%;
+    max-width: 400px;
+}
+.ageButton {
+    height: 100px;
+    width: 100px;
+    background-color: #e64a19;
+    border-radius: 50px;
+    padding: 10px;
+    word-wrap: break-word;
+    font-size: 17px;
+    box-shadow: 1px 1px 1px #250C04;
+    font-weight: 600;
+}
+.notOldButton {
+    height: 100px;
+    width: 100px;
+    background-color: #812B0E;
+    border-radius: 50px;
+    padding: 10px;
+    word-wrap: break-word;
+    font-size: 13px;
+    font-weight: 400;
+    box-shadow: 1px 1px 1px #250C04;
+}
+.ageButton:active {
+    background-color: #A53512;
+    transform: translate(1px, 1px);
+}
+.notOldButton:active {
+    background-color: #5C1F0A;
+    transform: translate(1px, 1px);
 }
 .flex {
     display: flex;
@@ -28,6 +84,9 @@ body {
 }
 .flex100 {
     flex-basis: 100%;
+}
+.flex50 {
+    flex-basis: 50%;
 }
 .flex33 {
     flex-basis: calc(100% / 3);
@@ -49,7 +108,6 @@ header {
     font-weight: 600;
 }
 .titleContainer {
-    color: #e64a19;
 }
 .gPointsContainer {}
 main {
