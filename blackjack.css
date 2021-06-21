@@ -112,7 +112,6 @@ body {
 }
 header {
     min-height: 15%;
-    border: 2px solid red;
 }
 #win, #loss, #tie {
     font-weight: 400;
@@ -130,16 +129,15 @@ main {
     min-height: 40%;
 }
 .handBox {
-    max-width: 100px;
-    background-color: white;
+    min-width: 280px;
+    height: 130px;
 }
 .resultsContainer {
     min-height: 10%;
-    border: 2px solid black;
+    line-height: 50px;
 }
 footer {
     min-height: 15%;
-    border: 2px solid red;
 }
 .footerDiv {
     width: 100%;
@@ -171,5 +169,5 @@ footer {
 }
 .disable {
     opacity: 0%;
-    cursor: not-allowed;
+    /* cursor: not-allowed; */
 }

@@ -12,8 +12,12 @@ const buttonPrimary = document.getElementById("oldButton");
 const notOldButton = document.getElementById("notOldButton");
 const birthdayInput = document.getElementById("birthday");
 const dealButton = document.getElementById("dealButton");
+const dealBox = document.getElementById("dealBox");
 const stayButton = document.getElementById("stayButton");
 const hitButton = document.getElementById("hitButton");
+const playerBox = document.getElementById("playerBox");
+const div = document.createElement("div");
+const resultsContainer = document.getElementById("resultsContainer")
 let playerStr = "The player's hand: ";
 let compStr = "The computer's hand: ";
 notOldButton.addEventListener("click", function redirect(){
@@ -49,12 +53,19 @@ dealButton.addEventListener("click", function disable() {
     dealButton.classList.add("disable");
     stayButton.classList.remove("disable");
     hitButton.classList.remove("disable");
+    stayButton.disabled = false;
+    hitButton.disabled = false;
     getDeck();
     let shuffledeck = shuffle(deck);
     console.log(shuffledeck);
     deal();
+    dealButton.disabled = "disabled"
+
     playerEval();
     dealButton.removeEventListener("click", function disable() {})
+})
+hitButton.addEventListener("click", ()=>{
+    playerHit();
 })
 function getDeck() {
   suit.forEach((i) => {
@@ -92,9 +103,20 @@ function deal() {
   compHand.push(shuffledeck.pop());
   playerHand.push(shuffledeck.pop());
   compHand.push(shuffledeck.pop());
+  //For each object in player's hand, create a new div w/ an image
+//   Make the image source equal to the object's suit and face
+  assignCardImg();
   showPlayer();
   showComp();
 }
+function assignCardImg() {
+    playerHand.forEach((i) => {
+        const newDiv = playerBox.appendChild(div);
+        let img = document.createElement("img");
+        img.src = `./cardicons/${i.suit}${i.face}.png`
+        newDiv.appendChild(img)
+        playerBox.appendChild(newDiv)
+})}
 function playerEval() {
   playerPoints = 0;
   compPoints = 0;
@@ -106,20 +128,18 @@ function playerEval() {
   });
   if (playerPoints === 21 && compPoints === 21) {
     gameResult = "tie"
-    console.log(`It's a tie! What are the odds??`);
+    resultsContainer.innerText = `It's a tie! What are the odds??`;
   } else if (playerPoints === 21) {
     gameResult = "win"
-    console.log(`Player wins!`);
+    resultsContainer.innerText = `Player wins!`;
   } else if (compPoints === 21) {
     gameResult = "lose"
-    console.log(`Computer wins!`);
+    resultsContainer.innerText = `Computer wins!`;
   } else if (playerPoints > 21) {
     gameResult = "lose"
-    console.log(`Busted! Better luck next time!`);
+    resultsContainer.innerText = `Busted! Better luck next time!`;
   } else {
-    console.log(
-      `The player currently has ${playerPoints} points. Hit or Stay? (Computer has ${compPoints} points)`
-    );
+    resultsContainer.innerText = `You have ${playerPoints} points. Hit or Stay?`;
   }
 }
 function showPlayer() {
@@ -137,6 +157,10 @@ function showComp() {
 }
 function playerHit() {
   playerHand.push(shuffledeck.pop());
+  //remove prior results if any
+  playerBox.querySelectorAll("*").forEach(n => n.remove());
+  //add images back
+  assignCardImg()
   showPlayer();
   playerEval();
 }

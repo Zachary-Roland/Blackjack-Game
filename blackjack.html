@@ -45,12 +45,12 @@
       <div class="gPointsContainer flex33"></div>
     </header>
     <main class="flex flex100">
-      <div class="handContainer flex100">
-        <div class="handBox"></div>
+      <div class="handContainer flex flex100 justifyCenter alignCenter">
+        <div class="handBox flex spaceEvenly alignCenter"></div>
       </div>
-      <div class="resultsContainer flex100"></div>
-      <div class="handContainer flex100">
-        <div class="handBox" id="playerBox"></div>
+      <div class="resultsContainer flex100" id="resultsContainer"></div>
+      <div class="handContainer flex flex100 justifyCenter alignCenter">
+        <div class="handBox flex spaceEvenly alignCenter" id="playerBox"></div>
       </div>
     </main>
     <footer class="flex flex100 alignCenter justifyCenter">
@@ -58,7 +58,7 @@
           <div class="stayBox">
               <button type="button" class="gameButton textColorWhite disable" id="stayButton" disabled>Stay!</button>
           </div>
-          <div class="dealBox">
+          <div class="dealBox" id="dealBox">
             <button type="button" class="gameButton textColorWhite" id="dealButton">Deal!</button>
           </div>
           <div class="hitBox">
