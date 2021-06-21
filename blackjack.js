@@ -8,13 +8,18 @@ let playerPoints = 0;
 let compPoints = 0;
 let gameResult;
 let errMsg;
-const ageButton = document.getElementById("oldButton");
-const notOldButton = document.getElementById("notOldButton")
-const birthdayInput = document.getElementById("birthday")
+const buttonPrimary = document.getElementById("oldButton");
+const notOldButton = document.getElementById("notOldButton");
+const birthdayInput = document.getElementById("birthday");
+const dealButton = document.getElementById("dealButton");
+const stayButton = document.getElementById("stayButton");
+const hitButton = document.getElementById("hitButton");
+let playerStr = "The player's hand: ";
+let compStr = "The computer's hand: ";
 notOldButton.addEventListener("click", function redirect(){
     window.location=`https://www.sesamestreet.org/`
 })
-ageButton.addEventListener("click", function verifyAge() {
+buttonPrimary.addEventListener("click", function verifyAge() {
     let birthday = birthdayInput.value
     birthday = new Date(birthday);
     var today = new Date();
@@ -39,6 +44,17 @@ ageButton.addEventListener("click", function verifyAge() {
             removeTarget.remove();
         })
     }
+})
+dealButton.addEventListener("click", function disable() {
+    dealButton.classList.add("disable");
+    stayButton.classList.remove("disable");
+    hitButton.classList.remove("disable");
+    getDeck();
+    let shuffledeck = shuffle(deck);
+    console.log(shuffledeck);
+    deal();
+    playerEval();
+    dealButton.removeEventListener("click", function disable() {})
 })
 function getDeck() {
   suit.forEach((i) => {
@@ -106,7 +122,6 @@ function playerEval() {
     );
   }
 }
-let playerStr = "The player's hand: ";
 function showPlayer() {
   playerStr = "The player's hand: ";
   playerHand.forEach((card) => {
@@ -114,7 +129,6 @@ function showPlayer() {
   });
   console.log(playerStr);
 }
-let compStr = "The computer's hand: ";
 function showComp() {
   compHand.forEach((card) => {
     compStr += `${card.face} of ${card.suit}, `;
@@ -154,8 +168,8 @@ function computerHit() {
       console.log(`Computer has ${compPoints} points to your ${playerPoints}, you win!!`)
   }
 }
-getDeck();
+// getDeck();
 let shuffledeck = shuffle(deck);
-console.log(shuffledeck);
-deal();
-playerEval();
+// console.log(shuffledeck);
+// deal();
+// playerEval();

@@ -107,6 +107,9 @@ body {
 .justifyCenter {
     justify-content: center;
 }
+.spaceEvenly {
+    justify-content: space-evenly;
+}
 header {
     min-height: 15%;
     border: 2px solid red;
@@ -139,8 +142,8 @@ footer {
     border: 2px solid red;
 }
 .footerDiv {
-    width: 80%;
-    max-width: 800px;
+    width: 100%;
+    max-width: 600px;
 }
 .stayBox {
 
@@ -150,4 +153,23 @@ footer {
 }
 .hitBox {
     
+}
+.gameButton {
+    height: 80px;
+    width: 80px;
+    background-color: #e64a19;
+    border-radius: 50px;
+    padding: 10px;
+    word-wrap: break-word;
+    font-size: 17px;
+    box-shadow: 1px 1px 1px #250C04;
+    font-weight: 600;
+}
+.gameButton:active {
+    background-color: #A53512;
+    transform: translate(1px, 1px);
+}
+.disable {
+    opacity: 0%;
+    cursor: not-allowed;
 }
