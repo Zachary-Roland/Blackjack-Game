@@ -67,6 +67,11 @@ dealButton.addEventListener("click", function disable() {
 hitButton.addEventListener("click", ()=>{
     playerHit();
 })
+stayButton.addEventListener("click", ()=>{
+    hitButton.disabled = "disabled"
+    hitButton.classList.add("disable")
+    playerStay();
+})
 function getDeck() {
   suit.forEach((i) => {
     face.forEach((j) => {
@@ -140,21 +145,6 @@ function revealCompImg() {
         newDiv.appendChild(img)
         compBox.appendChild(newDiv)
     })
-    // console.log(compHand)
-    // compHand.forEach((i) => {
-    //     let img = document.getElementById("compBox").querySelectorAll("img")
-    //     img.forEach((i)=>{
-    //         console.log(i)
-    //         i.src = `./cardicons/${i.suit}${i.face}.png`
-    //     })
-    //     // img.src = `./cardicons/${i.suit}${i.face}.png`
-    // })
-    // compBox.querySelectorAll("div").forEach((i)=>{
-    //     i.querySelectorAll("img").forEach((j)=> {
-    //         console.log(j)
-    //         j.src = `./cardicons/${j.suit}${j.face}.png`
-    //     })
-    //     // i.src = `./cardicons/${i.suit}${i.face}.png`
 }
 function playerEval() {
   playerPoints = 0;
@@ -167,15 +157,19 @@ function playerEval() {
   });
   if (playerPoints === 21 && compPoints === 21) {
     gameResult = "tie"
+    revealCompImg();
     resultsContainer.innerText = `It's a tie! What are the odds??`;
   } else if (playerPoints === 21) {
     gameResult = "win"
-    resultsContainer.innerText = `Player wins!`;
+    revealCompImg();
+    resultsContainer.innerText = `You have 21! You win!`;
   } else if (compPoints === 21) {
     gameResult = "lose"
-    resultsContainer.innerText = `Computer wins!`;
+    revealCompImg();
+    resultsContainer.innerText = `Dealer has 21! You lose!`;
   } else if (playerPoints > 21) {
     gameResult = "lose"
+    revealCompImg();
     resultsContainer.innerText = `Busted! Better luck next time!`;
   } else {
     resultsContainer.innerText = `You have ${playerPoints} points. Hit or Stay?`;
@@ -204,8 +198,11 @@ function playerHit() {
   playerEval();
 }
 function playerStay() {
-  console.log(`You chose to stay! What will the computer do?`);
-  computerHit();
+  resultsContainer.innerText = `You chose to stay! What will the Dealer do?`;
+  window.setTimeout(()=>{
+      revealCompImg();
+      computerHit();
+  }, 1000)
 }
 function computerHit() {
   compStr = "The computer's hand: "
@@ -215,20 +212,28 @@ function computerHit() {
       compPoints += card.value;
   });
   if (compPoints < 17) {
-      console.log(`Computer Hits!`);
-      compHand.push(shuffledeck.pop());
-      computerHit();
+      resultsContainer.innerText = `Dealer Hits!`;
+      window.setTimeout(()=>{
+          compHand.push(shuffledeck.pop());
+          revealCompImg();
+          computerHit();
+      }, 1000)
   } else if (compPoints > 21) {
       gameResult = "win";
-      console.log(`Computer Busted! You win!`)
+      resultsContainer.innerText = `Dealer Busted! You win!`
   } else if (compPoints > playerPoints) {
       //  comp wins
-      gameResult = "lose";
-      console.log(`Computer has ${compPoints} points to your ${playerPoints}, you lose!`)
+      resultsContainer.innerText = `Dealer Stays`
+      window.setTimeout(()=>{
+          gameResult = "lose";
+          resultsContainer.innerText = `Dealer has ${compPoints} to your ${playerPoints}, you lose!`
+      }, 1000)
   } else {
       //  comp loses
+      window.setTimeout(()=>{
       gameResult = "win"
-      console.log(`Computer has ${compPoints} points to your ${playerPoints}, you win!!`)
+      resultsContainer.innerText = `Dealer has ${compPoints} to your ${playerPoints}, you win!!`
+    }, 1000)
   }
 }
 // getDeck();

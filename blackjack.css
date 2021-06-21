@@ -113,15 +113,12 @@ body {
 header {
     min-height: 15%;
 }
-#win, #loss, #tie {
+#win, #loss, #tie, #deckAmount {
     font-weight: 400;
 }
-.gCountContainer {
+.font600 {
     font-weight: 600;
 }
-.titleContainer {
-}
-.gPointsContainer {}
 main {
     height: 68%;
 }
@@ -144,15 +141,6 @@ footer {
     width: 100%;
     max-width: 600px;
 }
-.stayBox {
-
-}
-.dealBox {
-
-}
-.hitBox {
-    
-}
 img {
     max-height: 100px;
     max-width: 100px;
@@ -173,6 +161,6 @@ img {
     transform: translate(1px, 1px);
 }
 .disable {
-    opacity: 0%;
+    opacity: 30%;
     /* cursor: not-allowed; */
 }
