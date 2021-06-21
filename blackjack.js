@@ -116,7 +116,8 @@ function assignCardImg() {
         img.src = `./cardicons/${i.suit}${i.face}.png`
         newDiv.appendChild(img)
         playerBox.appendChild(newDiv)
-})}
+    })
+}
 function playerEval() {
   playerPoints = 0;
   compPoints = 0;
