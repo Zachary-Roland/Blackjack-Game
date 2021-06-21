@@ -142,8 +142,8 @@ footer {
     max-width: 600px;
 }
 img {
-    max-height: 100px;
-    max-width: 100px;
+    height: 80px;
+    width: 80px;
 }
 .gameButton {
     height: 80px;
@@ -163,4 +163,10 @@ img {
 .disable {
     opacity: 30%;
     /* cursor: not-allowed; */
+}
+@media (min-width: 768px) {
+    img {
+        width: 120px;
+        height: 120px;
+    }
 }
