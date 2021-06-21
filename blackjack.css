@@ -39,7 +39,7 @@ body {
 }
 .minHeight50 {
     min-height: 50px;
-    line-height: 50px;
+    /* line-height: 50px; */
 }
 .birthdayDiv {
     min-height: 250px;
@@ -130,11 +130,12 @@ main {
 }
 .handBox {
     min-width: 280px;
-    height: 130px;
+    max-height: 130px;
 }
 .resultsContainer {
     min-height: 10%;
     line-height: 50px;
+    font-weight: 500;
 }
 footer {
     min-height: 15%;
@@ -151,6 +152,10 @@ footer {
 }
 .hitBox {
     
+}
+img {
+    max-height: 100px;
+    max-width: 100px;
 }
 .gameButton {
     height: 80px;

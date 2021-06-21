@@ -16,7 +16,7 @@ const dealBox = document.getElementById("dealBox");
 const stayButton = document.getElementById("stayButton");
 const hitButton = document.getElementById("hitButton");
 const playerBox = document.getElementById("playerBox");
-const div = document.createElement("div");
+const compBox = document.getElementById("compBox");
 const resultsContainer = document.getElementById("resultsContainer")
 let playerStr = "The player's hand: ";
 let compStr = "The computer's hand: ";
@@ -106,17 +106,55 @@ function deal() {
   //For each object in player's hand, create a new div w/ an image
 //   Make the image source equal to the object's suit and face
   assignCardImg();
+  assignCompImg();
   showPlayer();
   showComp();
 }
 function assignCardImg() {
     playerHand.forEach((i) => {
-        const newDiv = playerBox.appendChild(div);
+        const div = document.createElement("div");
+        const playerDiv = playerBox.appendChild(div);
+        let playerImg = document.createElement("img");
+        playerImg.src = `./cardicons/${i.suit}${i.face}.png`
+        playerDiv.appendChild(playerImg)
+        playerBox.appendChild(playerDiv)
+    })
+}
+function assignCompImg() {
+    compHand.forEach((i) => {
+        const div = document.createElement("div");
+        const newDiv = compBox.appendChild(div);
+        let img = document.createElement("img");
+        img.src = `./cardicons/backwardscard.png`
+        newDiv.appendChild(img)
+        compBox.appendChild(newDiv)
+    })
+}
+function revealCompImg() {
+    compBox.querySelectorAll("*").forEach(n => n.remove());
+    compHand.forEach((i)=>{
+        const div = document.createElement("div");
+        const newDiv = compBox.appendChild(div);
         let img = document.createElement("img");
         img.src = `./cardicons/${i.suit}${i.face}.png`
         newDiv.appendChild(img)
-        playerBox.appendChild(newDiv)
+        compBox.appendChild(newDiv)
     })
+    // console.log(compHand)
+    // compHand.forEach((i) => {
+    //     let img = document.getElementById("compBox").querySelectorAll("img")
+    //     img.forEach((i)=>{
+    //         console.log(i)
+    //         i.src = `./cardicons/${i.suit}${i.face}.png`
+    //     })
+    //     // img.src = `./cardicons/${i.suit}${i.face}.png`
+    // })
+    // compBox.querySelectorAll("div").forEach((i)=>{
+    //     i.querySelectorAll("img").forEach((j)=> {
+    //         console.log(j)
+    //         j.src = `./cardicons/${j.suit}${j.face}.png`
+    //     })
+    //     // i.src = `./cardicons/${i.suit}${i.face}.png`
 }
 function playerEval() {
   playerPoints = 0;
