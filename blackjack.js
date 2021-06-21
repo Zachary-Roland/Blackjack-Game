@@ -104,6 +104,8 @@ function shuffle(array) {
   return array;
 }
 function deal() {
+  compBox.querySelectorAll("*").forEach(n => n.remove());
+  playerBox.querySelectorAll("*").forEach(n => n.remove());
   playerHand.push(shuffledeck.pop());
   compHand.push(shuffledeck.pop());
   playerHand.push(shuffledeck.pop());
