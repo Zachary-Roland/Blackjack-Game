@@ -58,27 +58,23 @@ body {
   width: 80%;
   max-width: 400px;
 }
+.button {
+  border-radius: 50px;
+  padding: 10px;
+  word-wrap: break-word;
+  box-shadow: 1px 1px 1px #250c04;
+}
 .ageButton {
   height: 100px;
   width: 100px;
   background-color: #e64a19;
-  border-radius: 50px;
-  padding: 10px;
-  word-wrap: break-word;
   font-size: 17px;
-  box-shadow: 1px 1px 1px #250c04;
-  font-weight: 600;
 }
 .notOldButton {
   height: 100px;
   width: 100px;
   background-color: #812b0e;
-  border-radius: 50px;
-  padding: 10px;
-  word-wrap: break-word;
   font-size: 13px;
-  font-weight: 400;
-  box-shadow: 1px 1px 1px #250c04;
 }
 .ageButton:active {
   background-color: #a53512;
@@ -113,14 +109,11 @@ body {
 header {
   min-height: 15%;
 }
-#win,
-#loss,
-#tie,
-#deckAmount {
-  font-weight: 400;
-}
 .font600 {
   font-weight: 600;
+}
+.font400 {
+  font-weight: 400;
 }
 main {
   height: 68%;
@@ -152,12 +145,7 @@ img {
   height: 80px;
   width: 80px;
   background-color: #e64a19;
-  border-radius: 50px;
-  padding: 10px;
-  word-wrap: break-word;
   font-size: 17px;
-  box-shadow: 1px 1px 1px #250c04;
-  font-weight: 600;
 }
 .gameButton:active,
 .disable:not() {
