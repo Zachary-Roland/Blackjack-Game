@@ -17,7 +17,8 @@ const stayButton = document.getElementById("stayButton");
 const hitButton = document.getElementById("hitButton");
 const playerBox = document.getElementById("playerBox");
 const compBox = document.getElementById("compBox");
-const resultsContainer = document.getElementById("resultsContainer")
+const resultsContainer = document.getElementById("resultsContainer");
+let deckAmount = document.getElementById("deckAmount").innerText
 let playerStr = "The player's hand: ";
 let compStr = "The computer's hand: ";
 notOldButton.addEventListener("click", function redirect(){
@@ -107,6 +108,8 @@ function deal() {
   compBox.querySelectorAll("*").forEach(n => n.remove());
   playerBox.querySelectorAll("*").forEach(n => n.remove());
   playerHand.push(shuffledeck.pop());
+  deckAmount--
+  console.log(deckAmount);
   compHand.push(shuffledeck.pop());
   playerHand.push(shuffledeck.pop());
   compHand.push(shuffledeck.pop());
