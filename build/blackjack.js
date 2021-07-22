@@ -245,13 +245,13 @@ function computerHit() {
     resultsContainer.innerText = `Dealer Stays`;
     window.setTimeout(() => {
       gameResult = "lose";
-      resultsContainer.innerText = `Dealer has ${compPoints} to your ${playerPoints}, you lose!`;
+      resultsContainer.innerText = `Dealer has ${compPoints} to your ${playerPoints}, you lose! Refresh to play again!`;
     }, 1000);
   } else {
     //  comp loses
     window.setTimeout(() => {
       gameResult = "win";
-      resultsContainer.innerText = `Dealer has ${compPoints} to your ${playerPoints}, you win!!`;
+      resultsContainer.innerText = `Dealer has ${compPoints} to your ${playerPoints}, you win!! Refresh to play again!`;
     }, 1000);
   }
 }
