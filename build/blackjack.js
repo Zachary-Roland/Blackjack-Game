@@ -149,7 +149,7 @@ function assignCompImg() {
     const div = document.createElement("div");
     const newDiv = compBox.appendChild(div);
     let img = document.createElement("img");
-    img.src = `./cardicons/backwardscard.png`;
+    img.src = `./cardicons/backwardscard.PNG`;
     newDiv.appendChild(img);
     compBox.appendChild(newDiv);
   });
